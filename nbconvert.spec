@@ -4,7 +4,7 @@
 #
 Name     : nbconvert
 Version  : 5.2.1
-Release  : 5
+Release  : 6
 URL      : https://pypi.debian.net/nbconvert/nbconvert-5.2.1.tar.gz
 Source0  : https://pypi.debian.net/nbconvert/nbconvert-5.2.1.tar.gz
 Summary  : Converting Jupyter Notebooks
@@ -12,6 +12,13 @@ Group    : Development/Tools
 License  : BSD-3-Clause-Clear
 Requires: nbconvert-bin
 Requires: nbconvert-python
+Requires: bleach
+Requires: entrypoints
+Requires: mistune
+Requires: nbformat
+Requires: pandocfilters
+Requires: testpath
+Requires: traitlets
 BuildRequires : bleach
 BuildRequires : pbr
 BuildRequires : pip
@@ -52,7 +59,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1495724691
+export SOURCE_DATE_EPOCH=1495725189
 python3 setup.py build -b py3
 
 %install
