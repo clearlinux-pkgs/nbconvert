@@ -4,13 +4,14 @@
 #
 Name     : nbconvert
 Version  : 5.3.1
-Release  : 8
+Release  : 9
 URL      : https://pypi.debian.net/nbconvert/nbconvert-5.3.1.tar.gz
 Source0  : https://pypi.debian.net/nbconvert/nbconvert-5.3.1.tar.gz
 Summary  : Converting Jupyter Notebooks
 Group    : Development/Tools
 License  : BSD-3-Clause-Clear
 Requires: nbconvert-bin
+Requires: nbconvert-python3
 Requires: nbconvert-python
 Requires: bleach
 Requires: entrypoints
@@ -46,9 +47,19 @@ bin components for the nbconvert package.
 %package python
 Summary: python components for the nbconvert package.
 Group: Default
+Requires: nbconvert-python3
 
 %description python
 python components for the nbconvert package.
+
+
+%package python3
+Summary: python3 components for the nbconvert package.
+Group: Default
+Requires: python3-core
+
+%description python3
+python3 components for the nbconvert package.
 
 
 %prep
@@ -59,7 +70,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1504653136
+export SOURCE_DATE_EPOCH=1507160346
 python3 setup.py build -b py3
 
 %install
@@ -77,5 +88,8 @@ echo ----[ mark ]----
 /usr/bin/jupyter-nbconvert
 
 %files python
+%defattr(-,root,root,-)
+
+%files python3
 %defattr(-,root,root,-)
 /usr/lib/python3*/*
