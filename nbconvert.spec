@@ -4,7 +4,7 @@
 #
 Name     : nbconvert
 Version  : 5.3.1
-Release  : 17
+Release  : 18
 URL      : https://pypi.debian.net/nbconvert/nbconvert-5.3.1.tar.gz
 Source0  : https://pypi.debian.net/nbconvert/nbconvert-5.3.1.tar.gz
 Summary  : Converting Jupyter Notebooks
