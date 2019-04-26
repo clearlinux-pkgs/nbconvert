@@ -1,5 +1,5 @@
 PKG_NAME := nbconvert
-URL = https://files.pythonhosted.org/packages/cd/b8/fccf6aaaddd9fb44341ff8453a45f3e7e9035beac80a48f4ae9149a0390f/nbconvert-5.4.1.tar.gz
+URL = https://files.pythonhosted.org/packages/fb/83/28b80ccd628e96e613763facc0281ae8bae957a87673445db496de26dab7/nbconvert-5.5.0.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
