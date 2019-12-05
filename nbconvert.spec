@@ -4,7 +4,7 @@
 #
 Name     : nbconvert
 Version  : 5.6.1
-Release  : 29
+Release  : 30
 URL      : https://files.pythonhosted.org/packages/04/f2/299fa4b15155ecbe2aefe7412249f0dd91f953b7a9b37c336317d564a1ca/nbconvert-5.6.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/04/f2/299fa4b15155ecbe2aefe7412249f0dd91f953b7a9b37c336317d564a1ca/nbconvert-5.6.1.tar.gz
 Summary  : Converting Jupyter Notebooks
