@@ -4,7 +4,7 @@
 #
 Name     : nbconvert
 Version  : 5.6.1
-Release  : 31
+Release  : 32
 URL      : https://files.pythonhosted.org/packages/04/f2/299fa4b15155ecbe2aefe7412249f0dd91f953b7a9b37c336317d564a1ca/nbconvert-5.6.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/04/f2/299fa4b15155ecbe2aefe7412249f0dd91f953b7a9b37c336317d564a1ca/nbconvert-5.6.1.tar.gz
 Summary  : Converting Jupyter Notebooks
@@ -79,6 +79,7 @@ python components for the nbconvert package.
 Summary: python3 components for the nbconvert package.
 Group: Default
 Requires: python3-core
+Provides: pypi(nbconvert)
 
 %description python3
 python3 components for the nbconvert package.
@@ -86,13 +87,14 @@ python3 components for the nbconvert package.
 
 %prep
 %setup -q -n nbconvert-5.6.1
+cd %{_builddir}/nbconvert-5.6.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1572104089
+export SOURCE_DATE_EPOCH=1583185514
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
