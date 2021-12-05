@@ -4,7 +4,7 @@
 #
 Name     : nbconvert
 Version  : 6.3.0
-Release  : 48
+Release  : 49
 URL      : https://files.pythonhosted.org/packages/5f/d1/522fa1c7fa5269c8dcd1e14e16e43dadfcb56e938869f17cc5f1c325aa8d/nbconvert-6.3.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/5f/d1/522fa1c7fa5269c8dcd1e14e16e43dadfcb56e938869f17cc5f1c325aa8d/nbconvert-6.3.0.tar.gz
 Summary  : Converting Jupyter Notebooks
@@ -15,33 +15,28 @@ Requires: nbconvert-data = %{version}-%{release}
 Requires: nbconvert-license = %{version}-%{release}
 Requires: nbconvert-python = %{version}-%{release}
 Requires: nbconvert-python3 = %{version}-%{release}
-Requires: Jinja2
-Requires: Pygments
 Requires: bleach
-Requires: defusedxml
 Requires: entrypoints
-Requires: jupyter_core
-Requires: jupyterlab_pygments
 Requires: mistune
-Requires: nbclient
 Requires: nbformat
 Requires: pandocfilters
 Requires: testpath
 Requires: traitlets
-BuildRequires : Jinja2
-BuildRequires : Pygments
 BuildRequires : bleach
 BuildRequires : buildreq-distutils3
-BuildRequires : defusedxml
-BuildRequires : entrypoints
-BuildRequires : jupyter_core
-BuildRequires : jupyterlab_pygments
-BuildRequires : mistune
-BuildRequires : nbclient
-BuildRequires : nbformat
-BuildRequires : pandocfilters
-BuildRequires : testpath
-BuildRequires : traitlets
+BuildRequires : pypi(bleach)
+BuildRequires : pypi(defusedxml)
+BuildRequires : pypi(entrypoints)
+BuildRequires : pypi(jinja2)
+BuildRequires : pypi(jupyter_core)
+BuildRequires : pypi(jupyterlab_pygments)
+BuildRequires : pypi(mistune)
+BuildRequires : pypi(nbclient)
+BuildRequires : pypi(nbformat)
+BuildRequires : pypi(pandocfilters)
+BuildRequires : pypi(pygments)
+BuildRequires : pypi(testpath)
+BuildRequires : pypi(traitlets)
 
 %description
 # nbconvert
@@ -120,13 +115,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1636731711
+export SOURCE_DATE_EPOCH=1638703412
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
 export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 export MAKEFLAGS=%{?_smp_mflags}
+pypi-dep-fix.py . mistune
 python3 setup.py build
 
 %install
@@ -135,6 +131,7 @@ rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/nbconvert
 cp %{_builddir}/nbconvert-6.3.0/LICENSE %{buildroot}/usr/share/package-licenses/nbconvert/4864371bd27fe802d84990e2a5ee0d60bb29e944
 python3 -tt setup.py build  install --root=%{buildroot}
+pypi-dep-fix.py %{buildroot} mistune
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
